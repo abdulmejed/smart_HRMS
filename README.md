@@ -1,4 +1,4 @@
-# Smart-hRMS "Adopeted on ODOO" in Previous Programmer was developed But The we increasing functionality with full HRMS software
+# Smart-hRMS "Adopeted on ODOO" 
 
 # Installation
  1. clone the repository into your desired web server.

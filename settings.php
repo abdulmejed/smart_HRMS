@@ -76,6 +76,12 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
+                                       
+
+
+
+
+
 											<label>Company Name <span class="text-danger">*</span></label>
 											<input class="form-control" type="text" value="Dreamguy's Technologies">
 										</div>

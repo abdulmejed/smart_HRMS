@@ -20,7 +20,7 @@
 								<a href="#" class="noti-dot"><i class="la la-user"></i> <span> Employees</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="employees.php">All Employees</a></li>
-									<li><a href="holidays.php">Holidays</a></li>
+									<li><a href="includes/modals/holidays/index.html">Holidays</a></li>
 									<li><a href="leaves-employee.php">Employee Leave</a></li>
 									<li><a href="departments.php">Departments</a></li>
 									<li><a href="designations.php">Designations</a></li>

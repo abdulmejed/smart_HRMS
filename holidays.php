@@ -51,93 +51,93 @@
 		<![endif]-->
     </head>
     <body>
-		<!-- Main Wrapper -->
-        <div class="main-wrapper">
-		
-			<!-- Header -->
-            <?php include_once("includes/header.php");?>
-			<!-- /Header -->
-			
-			<!-- Sidebar -->
-            <?php include_once("includes/sidebar.php");?>
-			<!-- /Sidebar -->
-			
-			<!-- Page Wrapper -->
-            <div class="page-wrapper">
-			
-				<!-- Page Content -->
-                <div class="content container-fluid">
-				
-					<!-- Page Header -->
-					<div class="page-header">
-						<div class="row align-items-center">
-							<div class="col">
-								<h3 class="page-title">All Holidays </h3>
-								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-									<li class="breadcrumb-item active">Holidays</li>
-								</ul>
-							</div>
-							<div class="col-auto float-right ml-auto">
-								<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_holiday"><i class="fa fa-plus"></i> Add Holiday</a>
-							</div>
-						</div>
-					</div>
-					<!-- /Page Header -->
-					
-					<div class="row">
-						<div class="col-md-12">
-							<div class="table-responsive">
-								<table class="table table-striped custom-table mb-0">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Title </th>
-											<th>Holiday Date</th>
-											<th>Day</th>
-											<th class="text-right">Action</th>
-										</tr>
-									</thead>
-									<?php
-										$sql = "SELECT * FROM holidays";
-										$query = $dbh->prepare($sql);
-										$query->execute();
-										$results=$query->fetchAll(PDO::FETCH_OBJ);
-										$cnt=1;
-										if($query->rowCount() > 0)
-										{
-										foreach($results as $row)
-										{	
-									?>
-									<tbody>
-										<tr class="holiday-upcoming">
-											<td><?php echo $cnt; ?></td>
-											<td><?php echo htmlentities($row->Holiday_Name);?></td>
-											<td><?php echo htmlentities($row->Holiday_Date);?></td>
-											<td><?php echo htmlentities($row->Holiday_Date); ?></td>
-											<td class="text-right">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
-									</tbody>
-									<?php $cnt+=1;
-										}
-									}?>
-								</table>
-							</div>
-						</div>
-					</div>
-                </div>
-				<!-- /Page Content -->
-				
-				<!-- Add Holiday Modal -->
-				<?php include_once("includes/modals/holidays/add_holiday.php"); ?>
+	<div class="container">
+
+<br><br>
+
+<h1>Edit or Update Data Using PHP & MySQL Ajax</h1>
+
+<br><br>
+
+<div class="row">
+	<div class="col-md-4">
+		<h3>Add New Employee</h3>
+
+		<form action="save.php" id="form">
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input class="form-control" type="text" name="email">
+			  </div>
+			  <div class="form-group">
+				<label for="first_name">First Name</label>
+				<input class="form-control" type="text" name="first_name">
+			  </div>
+			  <div class="form-group">
+				<label for="last_name">Last Name</label>
+				<input class="form-control" type="text" name="last_name">
+			  </div>
+			  <div class="form-group">
+				<label for="address">Address</label>
+				<textarea class="form-control" type="text" name="address" rows="3"></textarea>
+			  </div>
+			  <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+		</form>
+	</div>
+
+	<div class="col-md-8">
+		<h3>List of Employees</h3>
+		<div id="employees-list"></div>
+	</div>
+</div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="edit-employee-modal">
+  <div class="modal-dialog">
+	<div class="modal-content">
+
+		  <!-- Modal Header -->
+		  <div class="modal-header">
+			<h4 class="modal-title">Edit Employee</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		  </div>
+
+		  <!-- Modal body -->
+		  <div class="modal-body">
+			<form action="update.php" id="edit-form">
+				<input class="form-control" type="hidden" name="id">
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input class="form-control" type="text" name="email">
+				  </div>
+				  <div class="form-group">
+					<label for="first_name">First Name</label>
+					<input class="form-control" type="text" name="first_name">
+				  </div>
+				  <div class="form-group">
+					<label for="last_name">Last Name</label>
+					<input class="form-control" type="text" name="last_name">
+				  </div>
+				  <div class="form-group">
+					<label for="address">Address</label>
+					<textarea class="form-control" type="text" name="address" rows="3"></textarea>
+				  </div>
+				  <button type="button" class="btn btn-primary" id="btnUpdateSubmit">Update</button>
+				  <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Close</button>
+			</form>
+
+
+		  </div>
+
+	</div>
+  </div>
+</div>
+
+
+<!-- Must put our javascript files here to fast the page loading -->
+
+<!-- jQuery library -->
+<	<?php include_once("includes/modals/holidays/add_holiday.php"); ?>
 				<!-- /Add Holiday Modal -->
 				
 				<!-- Edit Holiday Modal -->
